@@ -285,7 +285,7 @@ The Javadocs provide detailed documentation of the classes, methods, and attribu
 ### **2.2 Source Code Directory Structure**
 
 ```
-LibraryManagementSystem/
+Java-Sprint1/
 ├── src/
 │   ├── library/
 │   │   ├── Demo.java
