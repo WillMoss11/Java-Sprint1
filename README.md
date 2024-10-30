@@ -401,7 +401,7 @@ Assuming the source code is hosted on GitHub, you can obtain it by:
 
 1. **Cloning the Repository**:
    ```bash
-   git clone 
+   git clone https://github.com/WillMoss11/Java-Sprint1.git
    ```
 2. **Navigating to the Project Directory**:
    ```bash
@@ -430,7 +430,7 @@ Follow these steps to install and run the Library Management System application.
 
    - **Option 1**: Clone the repository using Git:
      ```bash
-     git clone 
+     git clone https://github.com/WillMoss11/Java-Sprint1.git
      ```
    - **Option 2**: Download the ZIP file from the GitHub repository and extract it.
 
