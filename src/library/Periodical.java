@@ -10,7 +10,6 @@ public class Periodical extends LibraryItem {
 
     @Override
     public void displayInfo() {
-        // Display periodical information
         System.out.println("Periodical Title: " + getTitle());
         System.out.println("Author: " + getAuthor());
         System.out.println("ISBN: " + getIsbn());
