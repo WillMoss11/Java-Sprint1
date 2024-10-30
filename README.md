@@ -179,23 +179,50 @@ To run the application:
 
 Below is a simplified class diagram representing the associations between the main classes:
 
-```
-                +-------------------+
+```                +-------------------+
                 |   LibraryItem     |
                 +-------------------+
                 | - id              |
                 | - title           |
+                | - authors         |
+                | - isbn            |
+                | - publisher       |
                 +-------------------+
                         ^
                         |
-                +----------------+     +------------------+
-                |      Book      |     |    Periodical    |
-                +----------------+     +------------------+
+                +----------------+
+                |   BookMaster   |
+                +----------------+
+                | - numberOfCopies|
+                +----------------+
+                        ^
+          +-------------+-------------+
+          |             |             |
++----------------+ +----------------+ +----------------+
+|   BookPrinted  | | BookElectronic | |   BookAudio    |
++----------------+ +----------------+ +----------------+
+| - numberOfPages| | - fileSize     | | - runtime      |
++----------------+ +----------------+ +----------------+
+
+                +--------------------+
+                |  PeriodicalMaster   |
+                +--------------------+
+                | - numberOfCopies   |
+                +--------------------+
+                        ^
+          +-------------+-------------+
+          |                           |
++----------------------+ +----------------------+
+|  PeriodicalPrinted   | | PeriodicalElectronic  |
++----------------------+ +----------------------+
+| - numberOfPages      | | - fileSize           |
++----------------------+ +----------------------+
 
                 +-------------------+
                 |      Author       |
                 +-------------------+
                 | - name            |
+                | - dateOfBirth     |
                 +-------------------+
 
                 +-------------------+
@@ -203,6 +230,7 @@ Below is a simplified class diagram representing the associations between the ma
                 +-------------------+
                 | - name            |
                 | - address         |
+                | - phoneNumber     |
                 +-------------------+
                         ^
                         |
@@ -262,30 +290,28 @@ LibraryManagementSystem/
 │   ├── library/
 │   │   ├── Demo.java
 │   │   ├── Library.java
-│   │   ├── items/
-│   │   │   ├── LibraryItem.java
-│   │   │   ├── BookMaster.java
-│   │   │   ├── BookPrinted.java
-│   │   │   ├── BookElectronic.java
-│   │   │   ├── BookAudio.java
-│   │   │   ├── PeriodicalMaster.java
-│   │   │   ├── PeriodicalPrinted.java
-│   │   │   └── PeriodicalElectronic.java
-│   │   ├── models/
-│   │   │   └── Author.java
-│   │   └── members/
-│   │       ├── Member.java
-│   │       │── Student.java
-├── bin/    └── Employee.java
+│   │   ├── LibraryItem.java
+│   │   ├── Book.java
+│   │   ├── Periodical.java
+│   │   ├── BookMaster.java
+│   │   ├── PeriodicalMaster.java
+│   │   ├── BookPrinted.java
+│   │   ├── BookElectronic.java
+│   │   ├── BookAudio.java
+│   │   ├── PeriodicalPrinted.java
+│   │   └── PeriodicalElectronic.java
+│   │   ├── Author.java
+│   │   ├── Member.java
+│   │   ├── Student.java
+│   │   └── Employee.java
+├── bin/
 ├── docs/
 └── README.md
+
 ```
 
 - **`src`**: Contains all the source code files.
-- **`library`**: Main package for the application.
-- **`items`**: Subpackage containing item-related classes.
-- **`models`**: Subpackage containing model classes like `Author`.
-- **`members`**: Subpackage containing member-related classes.
+- **`library`**: Main packages for the application.
 - **`bin`**: Directory where compiled class files are placed.
 - **`docs`**: Directory for generated Javadocs.
 
