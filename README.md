@@ -2,21 +2,21 @@
 
 ### **1.1 Introduction**
 
-The **Library Management System** is designed to manage library items (books and periodicals), authors, and patrons. It allows librarians to perform various operations such as adding, editing, and deleting items, authors, and patrons, as well as enabling patrons to borrow and return items.
+The **Library Management System** is crafted to oversee library items (including books and periodicals), manage authors, and facilitate patron interactions. It empowers librarians to carry out various operations such as adding, editing, and removing items, authors, and patrons, while also allowing patrons to borrow and return items.
 
 ### **1.2 Application Overview**
 
-The application models a library system with the following key features:
+This application simulates a library system with the following essential features:
 
-- **Item Management**: Manage different types of library items such as books and periodicals, available in printed, electronic, or audio formats.
-- **Member Management**: Handle member information, including borrowing and returning of items.
-- **Author Management**: Manage author details and associate them with library items.
-- **Borrowing and Returning**: Allow members to borrow and return items, handling specific quantities.
-- **Search Functionality**: Search for items by title, author, or ISBN.
+- **Item Management**: Administer various types of library items, including books and periodicals, available in printed, electronic, or audio formats.
+- **Member Management**: Oversee member information and facilitate the borrowing and returning of items.
+- **Author Management**: Maintain author information and link it to corresponding library items.
+- **Borrowing and Returning**: Enable members to borrow and return items, managing specific quantities.
+- **Search Functionality**: Search for items based on title, author, or ISBN.
 
 ### **1.3 Class Descriptions**
 
-Below is an explanation of the main classes and their functionalities:
+The following provides an overview of the main classes and their functionalities:
 
 #### **1.3.1 LibraryItem (Abstract Class)**
 
@@ -24,16 +24,16 @@ Below is an explanation of the main classes and their functionalities:
 - **Attributes**:
   - `id`: Unique identifier for the item.
   - `title`: Title of the item.
-  - `authors`: List of authors associated with the item.
+  - `authors`: List of associated authors.
   - `isbn`: International Standard Book Number.
   - `publisher`: Publisher of the item.
 - **Methods**:
-  - `getId()`, `getTitle()`, `getAuthors()`, `getIsbn()`, `getPublisher()`: Getters for the attributes.
+  - `getId()`, `getTitle()`, `getAuthors()`, `getIsbn()`, `getPublisher()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Abstract method for updating item details.
 
 #### **1.3.2 BookMaster (Abstract Class) extends LibraryItem**
 
-- **Purpose**: Serves as a base class for all book formats.
+- **Purpose**: Serves as a foundational class for all book formats.
 - **Subclasses**:
   - `BookPrinted`
   - `BookElectronic`
@@ -43,11 +43,11 @@ Below is an explanation of the main classes and their functionalities:
 
 - **Purpose**: Represents a printed book.
 - **Attributes**:
-  - `numberOfCopies`: Number of physical copies available.
+  - `numberOfCopies`: Count of physical copies available.
   - `numberOfPages`: Total pages in the book.
 - **Methods**:
-  - `getNumberOfCopies()`, `setNumberOfCopies(int)`: Manage the number of copies.
-  - `getNumberOfPages()`: Get the number of pages.
+  - `getNumberOfCopies()`, `setNumberOfCopies(int)`: Manage copy count.
+  - `getNumberOfPages()`: Retrieve the number of pages.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the book's details.
 
 #### **1.3.4 BookElectronic (Class) extends BookMaster**
@@ -58,7 +58,7 @@ Below is an explanation of the main classes and their functionalities:
   - `fileFormat`: Format of the electronic file (e.g., PDF, EPUB).
   - `numberOfPages`: Total pages in the book.
 - **Methods**:
-  - `getFileSize()`, `getFileFormat()`, `getNumberOfPages()`: Getters for the attributes.
+  - `getFileSize()`, `getFileFormat()`, `getNumberOfPages()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the book's details.
 
 #### **1.3.5 BookAudio (Class) extends BookMaster**
@@ -68,12 +68,12 @@ Below is an explanation of the main classes and their functionalities:
   - `runtime`: Duration of the audio book.
   - `narrator`: Name of the narrator.
 - **Methods**:
-  - `getRuntime()`, `getNarrator()`: Getters for the attributes.
+  - `getRuntime()`, `getNarrator()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the book's details.
 
 #### **1.3.6 PeriodicalMaster (Abstract Class) extends LibraryItem**
 
-- **Purpose**: Serves as a base class for all periodical formats.
+- **Purpose**: Serves as a foundational class for all periodical formats.
 - **Subclasses**:
   - `PeriodicalPrinted`
   - `PeriodicalElectronic`
@@ -82,11 +82,11 @@ Below is an explanation of the main classes and their functionalities:
 
 - **Purpose**: Represents a printed periodical.
 - **Attributes**:
-  - `numberOfCopies`: Number of physical copies available.
+  - `numberOfCopies`: Count of physical copies available.
   - `numberOfPages`: Total pages in the periodical.
 - **Methods**:
-  - `getNumberOfCopies()`, `setNumberOfCopies(int)`: Manage the number of copies.
-  - `getNumberOfPages()`: Get the number of pages.
+  - `getNumberOfCopies()`, `setNumberOfCopies(int)`: Manage copy count.
+  - `getNumberOfPages()`: Retrieve the number of pages.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the periodical's details.
 
 #### **1.3.8 PeriodicalElectronic (Class) extends PeriodicalMaster**
@@ -97,19 +97,19 @@ Below is an explanation of the main classes and their functionalities:
   - `fileFormat`: Format of the electronic file.
   - `numberOfPages`: Total pages in the periodical.
 - **Methods**:
-  - `getFileSize()`, `getFileFormat()`, `getNumberOfPages()`: Getters for the attributes.
+  - `getFileSize()`, `getFileFormat()`, `getNumberOfPages()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the periodical's details.
 
 #### **1.3.9 Author (Class)**
 
-- **Purpose**: Represents an author in the library system.
+- **Purpose**: Represents an author within the library system.
 - **Attributes**:
   - `name`: Name of the author.
   - `dateOfBirth`: Author's date of birth.
-  - `writtenItems`: List of items written by the author.
+  - `writtenItems`: List of items authored by the individual.
 - **Methods**:
-  - `getName()`, `getDateOfBirth()`, `getWrittenItems()`: Getters for the attributes.
-  - `updateDetails(String name, String dateOfBirth)`: Updates the author's details.
+  - `getName()`, `getDateOfBirth()`, `getWrittenItems()`: Getters for attributes.
+  - `updateDetails(String name, String dateOfBirth)`: Updates the author's information.
 
 #### **1.3.10 Member (Abstract Class)**
 
@@ -118,11 +118,11 @@ Below is an explanation of the main classes and their functionalities:
   - `name`: Name of the member.
   - `address`: Address of the member.
   - `phoneNumber`: Phone number of the member.
-  - `borrowedItems`: Map of borrowed items and quantities.
+  - `borrowedItems`: Map of borrowed items and their quantities.
 - **Methods**:
-  - `getName()`, `getAddress()`, `getPhoneNumber()`: Getters for the attributes.
+  - `getName()`, `getAddress()`, `getPhoneNumber()`: Getters for attributes.
   - `getBorrowedItems()`: Retrieves borrowed items.
-  - `updateDetails(String name, String address, String phoneNumber)`: Updates the member's details.
+  - `updateDetails(String name, String address, String phoneNumber)`: Updates member details.
   - `borrowItem(LibraryItem item, int quantity)`: Adds items to the borrowed list.
   - `returnItem(LibraryItem item, int quantity)`: Removes items from the borrowed list.
 
@@ -139,25 +139,25 @@ Below is an explanation of the main classes and their functionalities:
   - `authors`: List of authors.
   - `members`: List of members.
 - **Methods**:
-  - `addItem(LibraryItem item)`, `addAuthor(Author author)`, `addMember(Member member)`: Methods to add entities.
+  - `addItem(LibraryItem item)`, `addAuthor(Author author)`, `addMember(Member member)`: Methods for adding entities.
   - `editItem(String itemId, LibraryItem updatedItem)`: Edits item details.
   - `editAuthor(Author existingAuthor, Author updatedAuthor)`: Edits author details.
   - `editMember(Member existingMember, Member updatedMember)`: Edits member details.
-  - `borrowItem(Member member, LibraryItem item, int quantity)`: Facilitates item borrowing.
-  - `returnItem(Member member, LibraryItem item, int quantity)`: Facilitates item returning.
+  - `borrowItem(Member member, LibraryItem item, int quantity)`: Facilitates borrowing items.
+  - `returnItem(Member member, LibraryItem item, int quantity)`: Facilitates returning items.
   - `searchItemsByTitle(String title)`, `searchItemsByAuthor(String authorName)`, `searchItemByISBN(String isbn)`: Search functionalities.
 
 #### **1.3.13 Demo (Class)**
 
-- **Purpose**: Demonstrates the functionalities of the library management system.
+- **Purpose**: Demonstrates the library management system's functionalities.
 - **Methods**:
-  - `main(String[] args)`: Entry point of the application. Contains examples of adding, editing, borrowing, returning, and searching for items.
+  - `main(String[] args)`: Entry point of the application. Showcases adding, editing, borrowing, returning, and searching for items.
 
 ### **1.4 How to Start/Access the Application**
 
 To run the application:
 
-1. **Ensure Java is Installed**: The application requires Java Development Kit (JDK) 8 or higher.
+1. **Ensure Java is Installed**: The application requires the Java Development Kit (JDK) version 8 or higher.
 
 2. **Compile the Application**:
 
@@ -166,36 +166,64 @@ To run the application:
      ```bash
      javac -d bin src/library/Demo.java
      ```
-     - This will compile all the necessary classes and place the `.class` files in the `bin` directory.
+     - This compiles all necessary classes and places the `.class` files in the `bin` directory.
 
 3. **Run the Application**:
    - Execute the `Demo` class:
      ```bash
      java -cp bin library.Demo
      ```
-   - The application will run and demonstrate the library management functionalities through console outputs.
+   - The application will run and display library management functionalities through console outputs.
+
 
 ### **1.5 Class Diagram**
 
 Below is a simplified class diagram representing the associations between the main classes:
 
-```
-                +-------------------+
+```                +-------------------+
                 |   LibraryItem     |
                 +-------------------+
                 | - id              |
                 | - title           |
+                | - authors         |
+                | - isbn            |
+                | - publisher       |
                 +-------------------+
                         ^
                         |
-                +----------------+     +------------------+
-                |      Book      |     |    Periodical    |
-                +----------------+     +------------------+
+                +----------------+
+                |   BookMaster   |
+                +----------------+
+                | - numberOfCopies|
+                +----------------+
+                        ^
+          +-------------+-------------+
+          |             |             |
++----------------+ +----------------+ +----------------+
+|   BookPrinted  | | BookElectronic | |   BookAudio    |
++----------------+ +----------------+ +----------------+
+| - numberOfPages| | - fileSize     | | - runtime      |
++----------------+ +----------------+ +----------------+
+
+                +--------------------+
+                |  PeriodicalMaster   |
+                +--------------------+
+                | - numberOfCopies   |
+                +--------------------+
+                        ^
+          +-------------+-------------+
+          |                           |
++----------------------+ +----------------------+
+|  PeriodicalPrinted   | | PeriodicalElectronic  |
++----------------------+ +----------------------+
+| - numberOfPages      | | - fileSize           |
++----------------------+ +----------------------+
 
                 +-------------------+
                 |      Author       |
                 +-------------------+
                 | - name            |
+                | - dateOfBirth     |
                 +-------------------+
 
                 +-------------------+
@@ -203,6 +231,7 @@ Below is a simplified class diagram representing the associations between the ma
                 +-------------------+
                 | - name            |
                 | - address         |
+                | - phoneNumber     |
                 +-------------------+
                         ^
                         |
@@ -257,35 +286,33 @@ The Javadocs provide detailed documentation of the classes, methods, and attribu
 ### **2.2 Source Code Directory Structure**
 
 ```
-LibraryManagementSystem/
+Java-Sprint1/
 ├── src/
 │   ├── library/
 │   │   ├── Demo.java
 │   │   ├── Library.java
-│   │   ├── items/
-│   │   │   ├── LibraryItem.java
-│   │   │   ├── BookMaster.java
-│   │   │   ├── BookPrinted.java
-│   │   │   ├── BookElectronic.java
-│   │   │   ├── BookAudio.java
-│   │   │   ├── PeriodicalMaster.java
-│   │   │   ├── PeriodicalPrinted.java
-│   │   │   └── PeriodicalElectronic.java
-│   │   ├── models/
-│   │   │   └── Author.java
-│   │   └── members/
-│   │       ├── Member.java
-│   │       │── Student.java
-├── bin/    └── Employee.java
+│   │   ├── LibraryItem.java
+│   │   ├── Book.java
+│   │   ├── Periodical.java
+│   │   ├── BookMaster.java
+│   │   ├── PeriodicalMaster.java
+│   │   ├── BookPrinted.java
+│   │   ├── BookElectronic.java
+│   │   ├── BookAudio.java
+│   │   ├── PeriodicalPrinted.java
+│   │   └── PeriodicalElectronic.java
+│   │   ├── Author.java
+│   │   ├── Member.java
+│   │   ├── Student.java
+│   │   └── Employee.java
+├── bin/
 ├── docs/
 └── README.md
+
 ```
 
 - **`src`**: Contains all the source code files.
-- **`library`**: Main package for the application.
-- **`items`**: Subpackage containing item-related classes.
-- **`models`**: Subpackage containing model classes like `Author`.
-- **`members`**: Subpackage containing member-related classes.
+- **`library`**: Main packages for the application.
 - **`bin`**: Directory where compiled class files are placed.
 - **`docs`**: Directory for generated Javadocs.
 
@@ -333,7 +360,7 @@ To build and compile the project:
 
 ### **2.6 Database Design (Theoretical)**
 
-While my project does not use a database, here's how it would look theoretically:
+While my project doesn't use a database, here is how it would look:
 
 #### **Entity Relationships**
 
@@ -351,7 +378,7 @@ While my project does not use a database, here's how it would look theoretically
   - `publisher`
   - `type` (e.g., BookPrinted, BookElectronic, etc.)
 
-- **Books and Periodicals** (Specific tables or columns for attributes):
+- **Books and Periodicals** (Specific tables for attributes):
 
   - For physical items:
     - `number_of_copies`
@@ -382,7 +409,7 @@ While my project does not use a database, here's how it would look theoretically
 
 - **Associations**:
   - An author can write multiple items (One-to-Many).
-  - An item can have multiple authors (Many-to-Many, handled via a join table `ItemAuthors`).
+  - An item can have multiple authors (Many-to-Many).
   - A member can borrow multiple items (One-to-Many).
 
 #### **Entity Relationship Diagram**
