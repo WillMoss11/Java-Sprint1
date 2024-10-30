@@ -42,10 +42,12 @@ public class Library {
                 if (item.getTitle().equalsIgnoreCase(title)) {
                     borrowed.remove(item);
                     item.setNumCopies(item.getNumCopies() + 1);
-                    break;
+                    System.out.println("Returned: " + title);
+                    return; // Exit after successful return
                 }
             }
         }
+        System.out.println("You have not borrowed this item.");
     }
 
     public List<LibraryItem> getItems() {
@@ -56,3 +58,4 @@ public class Library {
         return authors;
     }
 }
+
