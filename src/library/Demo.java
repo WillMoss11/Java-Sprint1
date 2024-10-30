@@ -11,10 +11,10 @@ public class Demo {
         Author author = new Author("John Doe", "01/01/1970");
         library.addAuthor(author);
         
-        LibraryItem book1 = new Book("1", "Java Programming", "John Doe", "123456789", "Tech Publisher", 5, false, true);
+        Book book1 = new Book("1", "Java Programming", author.getName(), "123456789", "Tech Publisher", 5, false, true);
         library.addItem(book1);
 
-        LibraryItem periodical1 = new Periodical("2", "Tech Monthly", "Jane Smith", "987654321", "Tech Publisher", 3, true);
+        Periodical periodical1 = new Periodical("2", "Tech Monthly", "Jane Smith", "987654321", "Tech Publisher", 3, true);
         library.addItem(periodical1);
 
         System.out.println("Welcome to the Library Management System");

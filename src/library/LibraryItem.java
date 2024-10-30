@@ -17,15 +17,35 @@ public abstract class LibraryItem {
         this.numCopies = numCopies;
     }
 
-    // Getters and Setters
-    public String getId() { return id; }
-    public String getTitle() { return title; }
-    public String getAuthor() { return author; }
-    public String getIsbn() { return isbn; }
-    public String getPublisher() { return publisher; }
-    public int getNumCopies() { return numCopies; }
-    public void setNumCopies(int numCopies) { this.numCopies = numCopies; }
+    public String getId() {
+        return id;
+    }
 
-    public abstract void displayInfo(); // Abstract method for displaying item info
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public int getNumCopies() {
+        return numCopies;
+    }
+
+    public void setNumCopies(int numCopies) {
+        this.numCopies = numCopies;
+    }
+
+    // Abstract method to be implemented by subclasses
+    public abstract void displayInfo();
 }
 
