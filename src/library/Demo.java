@@ -11,15 +11,15 @@ public class Demo {
         Author author = new Author("John Doe", "01/01/1970");
         library.addAuthor(author);
         
-        Book book1 = new Book("1", "Java Programming", author.getName(), "123456789", "Tech Publisher", 5, false, true);
+        LibraryItem book1 = new Book("1", "Java Programming", "John Doe", "123456789", "Tech Publisher", 5, false, true);
         library.addItem(book1);
 
-        Periodical periodical1 = new Periodical("2", "Tech Monthly", "Jane Smith", "987654321", "Tech Publisher", 3, true);
+        LibraryItem periodical1 = new Periodical("2", "Tech Monthly", "Jane Smith", "987654321", "Tech Publisher", 3, true);
         library.addItem(periodical1);
 
         System.out.println("Welcome to the Library Management System");
         boolean running = true;
-        Patron patron = null; // Declare the patron variable outside of the switch
+        Patron patron = null;
 
         while (running) {
             System.out.println("\nMenu:");
@@ -36,7 +36,7 @@ public class Demo {
                     String borrowTitle = scanner.nextLine();
                     System.out.print("Enter your name: ");
                     String patronName = scanner.nextLine();
-                    patron = new Student(patronName, "Some Address", "123456", "S123"); // Create a new patron
+                    patron = new Student(patronName, "Some Address", "123456", "S123");
                     if (library.borrowItem(borrowTitle, patron)) {
                         System.out.println("You have borrowed: " + borrowTitle);
                     } else {
@@ -65,5 +65,4 @@ public class Demo {
         scanner.close();
     }
 }
-
 

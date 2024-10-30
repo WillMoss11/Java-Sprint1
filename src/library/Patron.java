@@ -24,9 +24,20 @@ public abstract class Patron {
         borrowedItems.remove(item);
     }
 
-    // Getters and Setters
-    public String getName() { return name; }
-    public String getAddress() { return address; }
-    public String getPhoneNumber() { return phoneNumber; }
-    public List<LibraryItem> getBorrowedItems() { return borrowedItems; }
+    // Getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public List<LibraryItem> getBorrowedItems() {
+        return borrowedItems;
+    }
 }
