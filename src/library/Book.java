@@ -12,7 +12,6 @@ public class Book extends LibraryItem {
 
     @Override
     public void displayInfo() {
-        // Display book information
         System.out.println("Book Title: " + getTitle());
         System.out.println("Author: " + getAuthor());
         System.out.println("ISBN: " + getIsbn());
