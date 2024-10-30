@@ -7,7 +7,7 @@ import java.util.List;
 public class Library {
     private List<LibraryItem> items;
     private List<Author> authors;
-    private HashMap<Patron, List<LibraryItem>> borrowedItems; // Maps patrons to borrowed items
+    private HashMap<Patron, List<LibraryItem>> borrowedItems;
 
     public Library() {
         items = new ArrayList<>();
@@ -26,13 +26,13 @@ public class Library {
     public boolean borrowItem(String title, Patron patron) {
         for (LibraryItem item : items) {
             if (item.getTitle().equalsIgnoreCase(title) && item.getNumCopies() > 0) {
-                item.setNumCopies(item.getNumCopies() - 1); // Decrease available copies
+                item.setNumCopies(item.getNumCopies() - 1);
                 borrowedItems.putIfAbsent(patron, new ArrayList<>());
-                borrowedItems.get(patron).add(item); // Add item to patron's borrowed list
+                borrowedItems.get(patron).add(item);
                 return true;
             }
         }
-        return false; // Item not available
+        return false;
     }
 
     public void returnItem(String title, Patron patron) {
@@ -40,8 +40,8 @@ public class Library {
             List<LibraryItem> borrowed = borrowedItems.get(patron);
             for (LibraryItem item : borrowed) {
                 if (item.getTitle().equalsIgnoreCase(title)) {
-                    borrowed.remove(item); // Remove item from borrowed list
-                    item.setNumCopies(item.getNumCopies() + 1); // Increase available copies
+                    borrowed.remove(item);
+                    item.setNumCopies(item.getNumCopies() + 1);
                     break;
                 }
             }

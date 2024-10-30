@@ -17,6 +17,9 @@ public abstract class LibraryItem {
         this.numCopies = numCopies;
     }
 
+    public abstract void displayInfo();
+
+    // Getters and setters
     public String getId() {
         return id;
     }
@@ -44,8 +47,6 @@ public abstract class LibraryItem {
     public void setNumCopies(int numCopies) {
         this.numCopies = numCopies;
     }
-
-    // Abstract method to be implemented by subclasses
-    public abstract void displayInfo();
 }
+
 
