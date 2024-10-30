@@ -360,7 +360,7 @@ To build and compile the project:
 
 ### **2.6 Database Design (Theoretical)**
 
-While my project does not use a database, here's how it would look theoretically:
+While my project doesn't use a database, here is how it would look:
 
 #### **Entity Relationships**
 
@@ -378,7 +378,7 @@ While my project does not use a database, here's how it would look theoretically
   - `publisher`
   - `type` (e.g., BookPrinted, BookElectronic, etc.)
 
-- **Books and Periodicals** (Specific tables or columns for attributes):
+- **Books and Periodicals** (Specific tables for attributes):
 
   - For physical items:
     - `number_of_copies`
@@ -409,7 +409,7 @@ While my project does not use a database, here's how it would look theoretically
 
 - **Associations**:
   - An author can write multiple items (One-to-Many).
-  - An item can have multiple authors (Many-to-Many, handled via a join table `ItemAuthors`).
+  - An item can have multiple authors (Many-to-Many).
   - A member can borrow multiple items (One-to-Many).
 
 #### **Entity Relationship Diagram**
