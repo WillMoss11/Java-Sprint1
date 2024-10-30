@@ -42,12 +42,20 @@ public class Library {
                 if (item.getTitle().equalsIgnoreCase(title)) {
                     borrowed.remove(item);
                     item.setNumCopies(item.getNumCopies() + 1);
-                    System.out.println("Returned: " + title);
-                    return; // Exit after successful return
+                    break;
                 }
             }
         }
-        System.out.println("You have not borrowed this item.");
+    }
+
+    public boolean deleteItemByTitle(String title) {
+        for (LibraryItem item : items) {
+            if (item.getTitle().equalsIgnoreCase(title)) {
+                items.remove(item);
+                return true; // Item found and removed
+            }
+        }
+        return false; // Item not found
     }
 
     public List<LibraryItem> getItems() {
@@ -58,4 +66,5 @@ public class Library {
         return authors;
     }
 }
+
 

@@ -3,7 +3,8 @@ package library;
 import java.util.Scanner;
 
 public class LibraryMenu {
-    private static Library library = new Library(); // Create a Library instance
+    private static Library library = new Library();
+    private static Patron patron;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -50,55 +51,21 @@ public class LibraryMenu {
 
     private static void addLibraryItem(Scanner scanner) {
         System.out.println("Adding a new library item...");
-        System.out.print("Enter the type of Library item (Book/Periodical): ");
-        String itemType = scanner.nextLine();
-
         System.out.print("Enter Title: ");
         String title = scanner.nextLine();
-        System.out.print("Enter Author: ");
-        String author = scanner.nextLine();
         System.out.print("Enter ISBN: ");
         String ISBN = scanner.nextLine();
         System.out.print("Enter Publisher: ");
         String publisher = scanner.nextLine();
-        System.out.print("Enter Total Copies: ");
-        int totalCopies = scanner.nextInt();
+        System.out.print("Enter Number of Copies: ");
+        int numCopies = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
-        LibraryItem libraryItem = null;
+        // Create the LibraryItem (You may need to specify the type)
+        LibraryItem item = new BookPrinted("3", title, "Author Name", ISBN, publisher, numCopies, 100); // Example
+        library.addItem(item);
 
-        if (itemType.equalsIgnoreCase("Book")) {
-            System.out.print("Enter type of Book (Printed/Electronic/Audio): ");
-            String bookType = scanner.nextLine();
-            if (bookType.equalsIgnoreCase("Printed")) {
-                System.out.print("Enter Number of Pages: ");
-                int numPages = scanner.nextInt();
-                libraryItem = new BookPrinted(ISBN, title, author, ISBN, publisher, totalCopies, numPages);
-            } else if (bookType.equalsIgnoreCase("Electronic")) {
-                System.out.print("Enter File Size: ");
-                String fileSize = scanner.nextLine();
-                System.out.print("Enter File Format: ");
-                String fileFormat = scanner.nextLine();
-                libraryItem = new BookElectronic(ISBN, title, author, ISBN, publisher, totalCopies, fileSize, fileFormat);
-            } else if (bookType.equalsIgnoreCase("Audio")) {
-                System.out.print("Enter Runtime: ");
-                String runtime = scanner.nextLine();
-                System.out.print("Enter Narrator: ");
-                String narrator = scanner.nextLine();
-                libraryItem = new BookAudio(ISBN, title, author, ISBN, publisher, totalCopies, runtime, narrator);
-            }
-        } else if (itemType.equalsIgnoreCase("Periodical")) {
-            System.out.print("Is it Electronic? (yes/no): ");
-            boolean isElectronic = scanner.nextLine().equalsIgnoreCase("yes");
-            libraryItem = new Periodical(ISBN, title, author, ISBN, publisher, totalCopies, isElectronic);
-        }
-
-        if (libraryItem != null) {
-            library.addItem(libraryItem);
-            System.out.println("Library item added successfully.");
-        } else {
-            System.out.println("Invalid item type.");
-        }
+        System.out.println("Library item added successfully.");
     }
 
     private static void editLibraryItem(Scanner scanner) {
@@ -110,51 +77,38 @@ public class LibraryMenu {
         System.out.println("Deleting a library item...");
         System.out.print("Enter the title of the item to delete: ");
         String title = scanner.nextLine();
-        
-        LibraryItem itemToRemove = null;
-        for (LibraryItem item : library.getItems()) {
-            if (item.getTitle().equalsIgnoreCase(title)) {
-                itemToRemove = item;
-                break;
-            }
-        }
-    
-        if (itemToRemove != null) {
-            library.getItems().remove(itemToRemove);
-            System.out.println("Successfully deleted: " + title);
+
+        boolean deleted = library.deleteItemByTitle(title);
+        if (deleted) {
+            System.out.println("Library item deleted successfully.");
         } else {
-            System.out.println("Item not found: " + title);
+            System.out.println("No item found with the title: " + title);
         }
     }
-    
+
     private static void borrowLibraryItem(Scanner scanner) {
         System.out.println("Borrowing a library item...");
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter the title of the item to borrow: ");
+        System.out.print("Enter item title to borrow: ");
         String title = scanner.nextLine();
-
-        // Logic to borrow the item
-        Patron patron = new Student(name, "", "", ""); // Create a student as an example
-        boolean borrowed = library.borrowItem(title, patron);
-        if (borrowed) {
-            System.out.println("You have successfully borrowed the item: " + title);
+        System.out.print("Enter your name: ");
+        String patronName = scanner.nextLine();
+        patron = new Student(patronName, "Some Address", "123456", "S123");
+        
+        if (library.borrowItem(title, patron)) {
+            System.out.println("You have borrowed: " + title);
         } else {
-            System.out.println("Item not available for borrowing.");
+            System.out.println("Item not available.");
         }
     }
 
     private static void returnLibraryItem(Scanner scanner) {
         System.out.println("Returning a library item...");
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
         System.out.print("Enter the title of the item to return: ");
         String title = scanner.nextLine();
 
-        // Logic to return the item
-        Patron patron = new Student(name, "", "", ""); // Create a student as an example
         library.returnItem(title, patron);
-        System.out.println("You have successfully returned the item: " + title);
+        System.out.println("You have returned: " + title);
     }
 }
+
 
