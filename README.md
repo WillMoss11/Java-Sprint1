@@ -162,7 +162,7 @@ To run the application:
 2. **Compile the Application**:
 
    - Navigate to the project directory.
-   - Compile the `Demo.java` file along with other classes:
+   - Compile files along with other classes:
      ```bash
      javac -d bin src/library/*.java
      ```
@@ -323,7 +323,7 @@ To build and compile the project:
 1. **Compile All Classes**:
 
    ```bash
-   javac -d bin src/library/Demo.java
+   javac -d bin src/library/*.java
    ```
 
    - This compiles all Java files starting from `Demo.java`, placing the `.class` files in the `bin` directory.
@@ -475,13 +475,13 @@ Follow these steps to install and run the Library Management System application.
      ```
    - Compile the application:
      ```bash
-     javac -d bin src/library/Demo.java
+     javac -d bin src/library/*.java
      ```
-     - This command compiles all Java files starting from `Demo.java` and places the compiled `.class` files into the `bin` directory.
+     - This command compiles all Java files and places the compiled `.class` files into the `bin` directory.
 
 4. **Run the Application**:
    ```bash
-   java -cp bin library.Demo
+   java -cp bin library.LibraryMenu
    ```
    - The application will execute, and you will see the output in the console.
 
