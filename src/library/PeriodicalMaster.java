@@ -5,5 +5,4 @@ public abstract class PeriodicalMaster extends LibraryItem {
         super(id, title, author, isbn, publisher, numCopies);
     }
 
-    // Additional methods for specific periodical types can be added here
 }
