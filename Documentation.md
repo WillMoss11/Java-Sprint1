@@ -164,7 +164,7 @@ To run the application:
    - Navigate to the project directory.
    - Compile the `Demo.java` file along with other classes:
      ```bash
-     javac -d bin src/library/Demo.java
+     javac -d bin src/library/*.java
      ```
      - This compiles all necessary classes and places the `.class` files in the `bin` directory.
 
