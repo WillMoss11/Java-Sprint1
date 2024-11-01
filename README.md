@@ -164,7 +164,8 @@ To run the application:
    - Navigate to the project directory.
    - Compile files along with other classes:
      ```bash
-     javac -d bin src/library/*.java
+     javac -d bin src/library/*.java src/library/items/*.java src/library/members/*.java src/library/models/*.java src/library/*.java
+
      ```
      - This compiles all necessary classes and places the `.class` files in the `bin` directory.
 
@@ -323,10 +324,10 @@ To build and compile the project:
 1. **Compile All Classes**:
 
    ```bash
-   javac -d bin src/library/*.java
+   javac -d bin src/library/*.java src/library/items/*.java src/library/members/*.java src/library/models/*.java src/library/*.java
    ```
 
-   - This compiles all Java files starting from `Demo.java`, placing the `.class` files in the `bin` directory.
+   - This compiles all Java files placing the `.class` files in the `bin` directory.
 
 2. **Generate Documentation** (Optional):
    ```bash
@@ -475,7 +476,7 @@ Follow these steps to install and run the Library Management System application.
      ```
    - Compile the application:
      ```bash
-     javac -d bin src/library/*.java
+     javac -d bin src/library/*.java src/library/items/*.java src/library/members/*.java src/library/models/*.java src/library/*.java
      ```
      - This command compiles all Java files and places the compiled `.class` files into the `bin` directory.
 
@@ -496,9 +497,3 @@ Follow these steps to install and run the Library Management System application.
 #### **Uninstallation**
 
 - Simply delete the project directory to remove all files related to the application.
-
----
-
-**Note**: Since the application is console-based and runs through the `Demo` class, there is no graphical user interface. All interactions are demonstrated within the `Demo` class's `main` method.
-
----
