@@ -1,4 +1,4 @@
-## **1. User Documentation**
+## **1) User Documentation**
 
 ### Introduction**
 
