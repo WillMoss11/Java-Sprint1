@@ -1,10 +1,10 @@
 ## **1. User Documentation**
 
-### **1.1 Introduction**
+### Introduction**
 
 The **Library Management System** is crafted to oversee library items (including books and periodicals), manage authors, and facilitate patron interactions. It empowers librarians to carry out various operations such as adding, editing, and removing items, authors, and patrons, while also allowing patrons to borrow and return items.
 
-### **1.2 Application Overview**
+### Application Overview**
 
 This application simulates a library system with the following essential features:
 
@@ -14,11 +14,11 @@ This application simulates a library system with the following essential feature
 - **Borrowing and Returning**: Enable members to borrow and return items, managing specific quantities.
 - **Search Functionality**: Search for items based on title, author, or ISBN.
 
-### **1.3 Class Descriptions**
+### Class Descriptions**
 
 The following provides an overview of the main classes and their functionalities:
 
-#### **1.3.1 LibraryItem (Abstract Class)**
+#### LibraryItem (Abstract Class)**
 
 - **Purpose**: Represents a general library item.
 - **Attributes**:
@@ -31,7 +31,7 @@ The following provides an overview of the main classes and their functionalities
   - `getId()`, `getTitle()`, `getAuthors()`, `getIsbn()`, `getPublisher()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Abstract method for updating item details.
 
-#### **1.3.2 BookMaster (Abstract Class) extends LibraryItem**
+#### BookMaster (Abstract Class) extends LibraryItem**
 
 - **Purpose**: Serves as a foundational class for all book formats.
 - **Subclasses**:
@@ -39,7 +39,7 @@ The following provides an overview of the main classes and their functionalities
   - `BookElectronic`
   - `BookAudio`
 
-#### **1.3.3 BookPrinted (Class) extends BookMaster**
+#### BookPrinted (Class) extends BookMaster**
 
 - **Purpose**: Represents a printed book.
 - **Attributes**:
@@ -50,7 +50,7 @@ The following provides an overview of the main classes and their functionalities
   - `getNumberOfPages()`: Retrieve the number of pages.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the book's details.
 
-#### **1.3.4 BookElectronic (Class) extends BookMaster**
+#### BookElectronic (Class) extends BookMaster**
 
 - **Purpose**: Represents an electronic book.
 - **Attributes**:
@@ -61,7 +61,7 @@ The following provides an overview of the main classes and their functionalities
   - `getFileSize()`, `getFileFormat()`, `getNumberOfPages()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the book's details.
 
-#### **1.3.5 BookAudio (Class) extends BookMaster**
+#### BookAudio (Class) extends BookMaster**
 
 - **Purpose**: Represents an audio book.
 - **Attributes**:
@@ -71,14 +71,14 @@ The following provides an overview of the main classes and their functionalities
   - `getRuntime()`, `getNarrator()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the book's details.
 
-#### **1.3.6 PeriodicalMaster (Abstract Class) extends LibraryItem**
+#### PeriodicalMaster (Abstract Class) extends LibraryItem**
 
 - **Purpose**: Serves as a foundational class for all periodical formats.
 - **Subclasses**:
   - `PeriodicalPrinted`
   - `PeriodicalElectronic`
 
-#### **1.3.7 PeriodicalPrinted (Class) extends PeriodicalMaster**
+#### PeriodicalPrinted (Class) extends PeriodicalMaster**
 
 - **Purpose**: Represents a printed periodical.
 - **Attributes**:
@@ -89,7 +89,7 @@ The following provides an overview of the main classes and their functionalities
   - `getNumberOfPages()`: Retrieve the number of pages.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the periodical's details.
 
-#### **1.3.8 PeriodicalElectronic (Class) extends PeriodicalMaster**
+#### PeriodicalElectronic (Class) extends PeriodicalMaster**
 
 - **Purpose**: Represents an electronic periodical.
 - **Attributes**:
@@ -100,7 +100,7 @@ The following provides an overview of the main classes and their functionalities
   - `getFileSize()`, `getFileFormat()`, `getNumberOfPages()`: Getters for attributes.
   - `updateDetailsFrom(LibraryItem updatedItem)`: Updates the periodical's details.
 
-#### **1.3.9 Author (Class)**
+#### Author (Class)**
 
 - **Purpose**: Represents an author within the library system.
 - **Attributes**:
@@ -111,7 +111,7 @@ The following provides an overview of the main classes and their functionalities
   - `getName()`, `getDateOfBirth()`, `getWrittenItems()`: Getters for attributes.
   - `updateDetails(String name, String dateOfBirth)`: Updates the author's information.
 
-#### **1.3.10 Member (Abstract Class)**
+#### Member (Abstract Class)**
 
 - **Purpose**: Represents a library member.
 - **Attributes**:
@@ -126,12 +126,12 @@ The following provides an overview of the main classes and their functionalities
   - `borrowItem(LibraryItem item, int quantity)`: Adds items to the borrowed list.
   - `returnItem(LibraryItem item, int quantity)`: Removes items from the borrowed list.
 
-#### **1.3.11 Student (Class) extends Member**
+#### Student (Class) extends Member**
 
 - **Purpose**: Represents a student member.
 - **Attributes and Methods**: Inherits from `Member`.
 
-#### **1.3.12 Library (Class)**
+#### Library (Class)**
 
 - **Purpose**: Manages library items, authors, and members.
 - **Attributes**:
@@ -147,13 +147,13 @@ The following provides an overview of the main classes and their functionalities
   - `returnItem(Member member, LibraryItem item, int quantity)`: Facilitates returning items.
   - `searchItemsByTitle(String title)`, `searchItemsByAuthor(String authorName)`, `searchItemByISBN(String isbn)`: Search functionalities.
 
-#### **1.3.13 Demo (Class)**
+#### Demo (Class)**
 
 - **Purpose**: Demonstrates the library management system's functionalities.
 - **Methods**:
   - `main(String[] args)`: Entry point of the application. Showcases adding, editing, borrowing, returning, and searching for items.
 
-### **1.4 How to Start/Access the Application**
+### How to Start/Access the Application**
 
 To run the application:
 
@@ -177,76 +177,100 @@ To run the application:
    - The application will run and display library management functionalities through console outputs.
 
 
-### **1.5 Class Diagram**
+### Class Diagram**
 
 Below is a simplified class diagram representing the associations between the main classes:
 
-```                +-------------------+
-                |   LibraryItem     |
-                +-------------------+
-                | - id              |
-                | - title           |
-                | - authors         |
-                | - isbn            |
-                | - publisher       |
-                +-------------------+
-                        ^
-                        |
-                +----------------+
-                |   BookMaster   |
-                +----------------+
-                | - numberOfCopies|
-                +----------------+
-                        ^
-          +-------------+-------------+
-          |             |             |
-+----------------+ +----------------+ +----------------+
-|   BookPrinted  | | BookElectronic | |   BookAudio    |
-+----------------+ +----------------+ +----------------+
-| - numberOfPages| | - fileSize     | | - runtime      |
-+----------------+ +----------------+ +----------------+
+```
 
-                +--------------------+
-                |  PeriodicalMaster   |
-                +--------------------+
-                | - numberOfCopies   |
-                +--------------------+
-                        ^
-          +-------------+-------------+
-          |                           |
-+----------------------+ +----------------------+
-|  PeriodicalPrinted   | | PeriodicalElectronic  |
-+----------------------+ +----------------------+
-| - numberOfPages      | | - fileSize           |
-+----------------------+ +----------------------+
 
-                +-------------------+
-                |      Author       |
-                +-------------------+
-                | - name            |
-                | - dateOfBirth     |
-                +-------------------+
+                         +------------------+
+                         |   LibraryItem    |
+                         +------------------+
+                         | - id: String     |
+                         | - title: String  |
+                         | - authors: List<Author> |
+                         | - isbn: String   |
+                         | - publisher: String |
+                         | - numCopies: int |
+                         +------------------+
+                         | + getId(): String |
+                         | + getTitle(): String |
+                         | + getAuthors(): List<Author> |
+                         | + getIsbn(): String |
+                         | + getPublisher(): String |
+                         | + getNumCopies(): int |
+                         | + displayInfo()   |
+                         +------------------+
+                                /|\
+                               / | \
+                              /  |  \
+                             /   |   \
+                            /    |    \
+                           /     |     \
+                          /      |      \
+          +----------------+  +------------------+  +----------------+ 
+          |   BookPrinted  |  |   BookElectronic |  |   BookAudio    |
+          +----------------+  +------------------+  +----------------+
+          | - pages: int   |  | - format: String |  | - narrator: String |
+          +----------------+  +------------------+  +----------------+
+          | + displayInfo() |  | + displayInfo()  |  | + displayInfo()  |
+          +----------------+  +------------------+  +----------------+
 
-                +-------------------+
-                |      Patron       |
-                +-------------------+
-                | - name            |
-                | - address         |
-                | - phoneNumber     |
-                +-------------------+
-                        ^
-                        |
-                +----------------+     +----------------+
-                |    Student     |     |    Employee    |
-                +----------------+     +----------------+
+          +------------------+  +-------------------+
+          | PeriodicalPrinted |  | PeriodicalElectronic |
+          +------------------+  +-------------------+
+          | - issue: String   |  | - frequency: String |
+          +------------------+  +-------------------+
+          | + displayInfo()   |  | + displayInfo()     |
+          +------------------+  +-------------------+
 
-                +-------------------+
-                |      Library      |
-                +-------------------+
-                | - items           |
-                | - authors         |
-                | - patrons         |
-                +-------------------+
+                         +------------------+
+                         |      Author      |
+                         +------------------+
+                         | - name: String   |
+                         | - birthDate: String |
+                         +------------------+
+                         | + getName(): String |
+                         | + getBirthDate(): String |
+                         +------------------+
+
+                         +------------------+
+                         |      Member      |
+                         +------------------+
+                         | - name: String   |
+                         | - address: String|
+                         | - phone: String  |
+                         +------------------+
+                         | + getName(): String |
+                         | + borrowItem(item, quantity) |
+                         | + returnItem(item, quantity) |
+                         +------------------+
+                               /|\
+                              / | \
+                             /  |  \
+                            /   |   \
+                           /    |    \
+                          /     |     \
+          +----------------+  +----------------+
+          |    Student     |  |    Employee    |
+          +----------------+  +----------------+
+          | - studentId: String | - employeeId: String |
+          +----------------+  +----------------+
+          | + getMemberId(): String | + getMemberId(): String |
+          +----------------+  +----------------+
+
+                         +------------------+
+                         |      Library     |
+                         +------------------+
+                         | - items: List<LibraryItem> |
+                         | - members: List<Member>     |
+                         +------------------+
+                         | + addItem(item)  |
+                         | + addMember(member) |
+                         | + borrowItem(member, item, quantity) |
+                         | + returnItem(member, item, quantity) |
+                         +------------------+
 
 
 
@@ -270,9 +294,9 @@ Below is a simplified class diagram representing the associations between the ma
 
 ---
 
-## **2. Development Documentation**
+## **2) Development Documentation**
 
-### **2.1 Javadocs**
+### Javadocs**
 
 The Javadocs provide detailed documentation of the classes, methods, and attributes used in the application. They include descriptions, parameter explanations, and return values.
 
@@ -284,31 +308,33 @@ The Javadocs provide detailed documentation of the classes, methods, and attribu
   ```
 - The documentation will be generated in the `docs` directory.
 
-### **2.2 Source Code Directory Structure**
+### Source Code Directory Structure**
 
 ```
-Java-Sprint1/
-├── src/
-│   ├── library/
-│   │   ├── Demo.java
-│   │   ├── Library.java
-│   │   ├── LibraryItem.java
-│   │   ├── Book.java
-│   │   ├── Periodical.java
-│   │   ├── BookMaster.java
-│   │   ├── PeriodicalMaster.java
-│   │   ├── BookPrinted.java
-│   │   ├── BookElectronic.java
-│   │   ├── BookAudio.java
-│   │   ├── PeriodicalPrinted.java
-│   │   └── PeriodicalElectronic.java
-│   │   ├── Author.java
-│   │   ├── Member.java
-│   │   ├── Student.java
-│   │   └── Employee.java
-├── bin/
-├── docs/
-└── README.md
+
+├── docs/                    # Documentation files
+├── bin/                     # Compiled class files
+└── library/                 # Library management system source code
+    ├── Demo.java
+    ├── Library.java
+    ├── items/
+    │   ├── LibraryItem.java
+    │   ├── BookPrinted.java
+    │   ├── BookElectronic.java
+    │   ├── BookAudio.java
+    │   ├── Book.java
+    │   ├── BookMaster.java
+    │   ├── Periodical.java
+    │   ├── PeriodicalPrinted.java
+    │   ├── PeriodicalElectronic.java
+    │   └── PeriodicalMaster.java
+    ├── members/
+    │   ├── Member.java
+    │   ├── Student.java
+    │   └── Employee.java
+    └── models/
+        └── Author.java
+
 
 ```
 
@@ -317,7 +343,7 @@ Java-Sprint1/
 - **`bin`**: Directory where compiled class files are placed.
 - **`docs`**: Directory for generated Javadocs.
 
-### **2.3 Build Process**
+### Build Process**
 
 To build and compile the project:
 
@@ -334,12 +360,12 @@ To build and compile the project:
    javadoc -d docs -sourcepath src -subpackages library
    ```
 
-### **2.4 Compiler Time Dependencies**
+### Compiler Time Dependencies**
 
 - **Java Development Kit (JDK)**: Version 8 or higher.
 - No external libraries are required for this project.
 
-### **2.5 Development Standards**
+### Development Standards**
 
 - **Coding Conventions**:
 
@@ -359,7 +385,7 @@ To build and compile the project:
   - Git is used for version control.
   - Commit messages should be descriptive.
 
-### **2.6 Database Design (Theoretical)**
+### Database Design (Theoretical)**
 
 While my project doesn't use a database, here is how it would look:
 
@@ -423,7 +449,7 @@ While my project doesn't use a database, here is how it would look:
 [Member] 1----* [BorrowedItems] *----1 [LibraryItem]
 ```
 
-### **2.7 Getting the Source Code from GitHub Repository**
+### Getting the Source Code from GitHub Repository**
 
 Assuming the source code is hosted on GitHub, you can obtain it by:
 
@@ -440,9 +466,9 @@ Assuming the source code is hosted on GitHub, you can obtain it by:
 
 ---
 
-## **3. Deployment Documentation**
+## **3) Deployment Documentation**
 
-### **3.1 Installation Manual**
+### Installation Manual**
 
 Follow these steps to install and run the Library Management System application.
 
